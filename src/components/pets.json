@@ -1,0 +1,44 @@
+[
+	{
+		"name": "Charlie",
+		"type": "Succulent",
+		"age": "1",
+		"toy": "None",
+		"food": "Sunlight"
+	},
+	{
+		"name": "Spot",
+		"type": "Dog",
+		"age": "3",
+		"toy": "Rubber bone",
+		"food": "Kibble"
+	},
+	{
+		"name": "Max",
+		"type": "Cat",
+		"age": "5",
+		"toy": "Rubber mouse",
+		"food": "Purina"
+	},
+	{
+		"name": "Binky",
+		"type": "Dog",
+		"age": "3",
+		"toy": "Rubber chicken",
+		"food": "Ole Roy"
+	},
+	{
+		"name": "Winky",
+		"type": "House elf",
+		"age": "57",
+		"toy": "Sweater",
+		"food": "Butterbeer"
+	},
+	{
+		"name": "Dobby",
+		"type": "House elf",
+		"age": "45",
+		"toy": "Apron",
+		"food": "Pizza"
+	}
+]
