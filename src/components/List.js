@@ -10,7 +10,7 @@ import Paper from '@material-ui/core/Paper';
 
 import URLInput from './URLInput';
 
-const dessertData = require('./dessert.json');
+// const dessertData = require('./dessert.json');
 // const petData = require('./pets.json');
 
 const useStyles = makeStyles(theme => ({
@@ -24,9 +24,6 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-
-
-
 // const tableHeaders = createHeaders(petData);
 
 // Create Table Data from JSON
@@ -39,8 +36,10 @@ const getKeys = (obj) => {
 }
   
 function List(props) {
-	const classes = useStyles();
-
+	if (!props.data) {
+		return null;
+	}
+	// const classes = useStyles();
 
 	// Create Table Headers from JSON
 
@@ -56,29 +55,33 @@ function List(props) {
 
 	let tableHeaders = createHeaders(props.data);
 	let rows = props.data;
-  
-	return (
-		<Paper className={classes.root}>
-			<Table className={classes.table}>
-				<TableHead>
-					<TableRow>
-						{tableHeaders.map(header => (
-							<TableCell key={header}>{header}</TableCell>
-						))}
-					</TableRow>
-				</TableHead>
-				<TableBody>
-					{rows.map(row => (
-						<TableRow key={row.name}>
-							{getKeys(row).map(key => (
-								<TableCell key={key}>{row[key]}</TableCell>
+	if (props.data) {
+		return (
+			<Paper>
+				<Table>
+					<TableHead>
+						<TableRow>
+							{tableHeaders.map(header => (
+								<TableCell key={header}>{header}</TableCell>
 							))}
 						</TableRow>
-					))}
-				</TableBody>
-			</Table>
-		</Paper>
-	);
+					</TableHead>
+					<TableBody>
+						{rows.map(row => (
+							<TableRow key={row.name}>
+								{getKeys(row).map(key => (
+									<TableCell key={key}>{row[key]}</TableCell>
+								))}
+							</TableRow>
+						))}
+					</TableBody>
+				</Table>
+			</Paper>
+		);
+	} else {
+		return false;
+	}
+	
   }
 
 class ListView extends React.Component {
@@ -86,14 +89,11 @@ class ListView extends React.Component {
 		super(props)
 
 		this.state = {
-			data: dessertData
+			data: false
 		}
 	}
 
-	
-
 	render() {
-
 		const handleNewUrl = url => {
 			// this.setState({url: url});
 			goGrabMeThatData(url);

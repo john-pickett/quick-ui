@@ -38,6 +38,9 @@ export default function URLInput(props) {
 	
 	return (
 		<form className={classes.container} noValidate autoComplete="off">
+			<p>https://api.myjson.com/bins/goa4t</p>
+			<p>https://mcg-pets-api.herokuapp.com/dogs</p>
+			<p>https://mcg-pets-api.herokuapp.com/cats</p>
 			<TextField
 				id="outlined-name"
 				label="URL"
@@ -48,7 +51,7 @@ export default function URLInput(props) {
 				variant="outlined"
 			/>
 			<Button variant="contained" color="primary" className={classes.button} 
-				size="medium" onClick={props.onNewURL(values.url)}>
+				size="medium" onClick={() => props.onNewURL(values.url)}>
         		Go
       		</Button>
 		</form>
